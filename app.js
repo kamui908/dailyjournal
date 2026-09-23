@@ -11,7 +11,7 @@ app.use(express.static("public"));
 
 // MongoDB Connection
 mongoose.connect(
-  "mongodb+srv://chrizty90888:e2gGjiGDtvoH0xkY@todolist.vvynwcg.mongodb.net/?retryWrites=true&w=majority&appName=toDoList"
+  ""
 ).then(() => {
   console.log("✅ Connected to MongoDB");
 }).catch((err) => {
