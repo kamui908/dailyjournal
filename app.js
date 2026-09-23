@@ -10,9 +10,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // MongoDB Connection
-mongoose.connect(
-  ""
-).then(() => {
+const mongoUri = process.env.MONGODB_URI;
+
+if (!mongoUri) {
+  throw new Error("MONGODB_URI environment variable is not set");
+}
+
+mongoose.connect(mongoUri, {
+  dbName: "dailyJournal"
+}).then(() => {
   console.log("✅ Connected to MongoDB");
 }).catch((err) => {
   console.error("MongoDB connection error:", err);
